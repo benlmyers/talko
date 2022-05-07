@@ -11,6 +11,8 @@
 		EE04AB9B2825F4CB00FF323D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04AB9A2825F4CB00FF323D /* ContentView.swift */; };
 		EE04AB9D2825F4CC00FF323D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE04AB9C2825F4CC00FF323D /* Assets.xcassets */; };
 		EE04ABA02825F4CC00FF323D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE04AB9F2825F4CC00FF323D /* Preview Assets.xcassets */; };
+		EE04ABA82826100000FF323D /* EasyFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = EE04ABA72826100000FF323D /* EasyFirebase */; };
+		EE04ABAC2826407000FF323D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE04ABAB2826407000FF323D /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,7 @@
 		EE04AB9A2825F4CB00FF323D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EE04AB9C2825F4CC00FF323D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE04AB9F2825F4CC00FF323D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EE04ABAB2826407000FF323D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE04ABA82826100000FF323D /* EasyFirebase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +55,7 @@
 		EE04AB972825F4CB00FF323D /* talko */ = {
 			isa = PBXGroup;
 			children = (
+				EE04ABAB2826407000FF323D /* GoogleService-Info.plist */,
 				EE04AB982825F4CB00FF323D /* talkoApp.swift */,
 				EE04AB9A2825F4CB00FF323D /* ContentView.swift */,
 				EE04AB9C2825F4CC00FF323D /* Assets.xcassets */,
@@ -83,6 +88,9 @@
 			dependencies = (
 			);
 			name = talko;
+			packageProductDependencies = (
+				EE04ABA72826100000FF323D /* EasyFirebase */,
+			);
 			productName = talko;
 			productReference = EE04AB952825F4CB00FF323D /* talko.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +119,9 @@
 				Base,
 			);
 			mainGroup = EE04AB8C2825F4CB00FF323D;
+			packageReferences = (
+				EE04ABA62826100000FF323D /* XCRemoteSwiftPackageReference "easy-firebase" */,
+			);
 			productRefGroup = EE04AB962825F4CB00FF323D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +138,7 @@
 			files = (
 				EE04ABA02825F4CC00FF323D /* Preview Assets.xcassets in Resources */,
 				EE04AB9D2825F4CC00FF323D /* Assets.xcassets in Resources */,
+				EE04ABAC2826407000FF323D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +351,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EE04ABA62826100000FF323D /* XCRemoteSwiftPackageReference "easy-firebase" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Flowductive/easy-firebase";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EE04ABA72826100000FF323D /* EasyFirebase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE04ABA62826100000FF323D /* XCRemoteSwiftPackageReference "easy-firebase" */;
+			productName = EasyFirebase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EE04AB8D2825F4CB00FF323D /* Project object */;
 }
