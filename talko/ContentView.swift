@@ -10,21 +10,28 @@ import EasyFirebase
 
 struct ContentView: View {
     
+    /// The user's inputted message
     @State var myMessage = ""
+    /// All the stored messages
     @State var allMessages = [String]()
     
     var body: some View {
-        VStack {
-            TextField("Your message:", text: $myMessage)
-            Button("Send message") {
-                let newMessage = "Hello, world!"
-                EasyFirestore.Retrieval.get(singleton: "TalkoData", ofType: TalkoData.self) { data in
-                    if var data = data {
-                        data.messages.append(myMessage)
-                        EasyFirestore.Storage.set(data)
+        VStack(spacing: 12.0) {
+            Text("🌮 Talko!")
+                .font(.title)
+                .fontWeight(.black)
+            HStack {
+                TextField("🗣 Your message:", text: $myMessage)
+                Button("Send") {
+                    EasyFirestore.Retrieval.get(singleton: "TalkoData", ofType: TalkoData.self) { data in
+                        if var data = data {
+                            data.messages.append(myMessage)
+                            EasyFirestore.Storage.set(data)
+                        }
                     }
                 }
             }
+            Divider()
             Button("Refresh messages") {
                 EasyFirestore.Retrieval.get(singleton: "TalkoData", ofType: TalkoData.self) { data in
                     if let data = data {
@@ -32,10 +39,13 @@ struct ContentView: View {
                     }
                 }
             }
-            VStack {
-                Text("All messages")
-                ForEach(allMessages.reversed(), id: \.self) { message in
-                    Text(message)
+            .padding()
+            ScrollView {
+                VStack(spacing: 12.0) {
+                    Text("All messages 📨").bold().foregroundColor(.yellow)
+                    ForEach(allMessages.reversed(), id: \.self) { message in
+                        Text(message).foregroundColor(.gray)
+                    }
                 }
             }
         }
